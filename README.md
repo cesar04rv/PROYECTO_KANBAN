@@ -71,7 +71,7 @@ Interfaz de usuario interactiva:
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/kanban-board.git
+git clone https://github.com/cesar04rv/2DAW_PUBLICO.git
 cd kanban-board
 ```
 
@@ -474,8 +474,3 @@ curl -X DELETE http://localhost/kanban-board/php/api/tasks.php?id=1
 - **Backend**: PHP 8.3+, MySQL
 - **Arquitectura**: MVC, RESTful API
 - **Herramientas**: PDO, Fetch API
-
-
----
-
-**⭐ Si este proyecto te fue útil, no olvides darle una estrella en GitHub!**

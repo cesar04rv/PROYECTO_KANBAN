@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Mi Kanban Board</h1>
+
+        <div class="add-task-section">
+            <form class="task-form" id="addTaskForm">
+                <input 
+                    type="text" 
+                    id="taskDescription" 
+                    class="task-input" 
+                    placeholder="Nueva tarea..." 
+                    required
+                >
+                <select id="taskStatus">
+                    <option value="Some day">Some day</option>
+                    <option value="To do" selected>To do</option>
+                    <option value="In progress">In progress</option>
+                    <option value="Done">Done</option>
+                </select>
+                <select id="taskPriority">
+                    <option value="low">Baja</option>
+                    <option value="medium" selected>Media</option>
+                    <option value="high">Alta</option>
+                </select>
+                <button type="submit" class="btn btn-add">➕ Agregar</button>
+            </form>
+        </div>
+
+        <div id="errorContainer"></div>
+        <div id="loadingContainer" class="loading">Cargando tareas...</div>
+
+        <div class="kanban-board" id="kanbanBoard">
+            <div class="column" data-status="Some day">
+                <div class="column-header">
+                    <span>💭 Some day</span>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="tasks-container" data-status="Some day"></div>
+            </div>
+
+            <div class="column" data-status="To do">
+                <div class="column-header">
+                    <span>📝 To do</span>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="tasks-container" data-status="To do"></div>
+            </div>
+
+            <div class="column" data-status="In progress">
+                <div class="column-header">
+                    <span>🚀 In progress</span>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="tasks-container" data-status="In progress"></div>
+            </div>
+
+            <div class="column" data-status="Done">
+                <div class="column-header">
+                    <span>✅ Done</span>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="tasks-container" data-status="Done"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar tarea -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">Editar Tarea</div>
+            <div class="modal-body">
+                <label>Descripción:</label>
+                <input type="text" id="editDescription" class="task-input">
+                
+                <label>Estado:</label>
+                <select id="editStatus">
+                    <option value="Some day">Some day</option>
+                    <option value="To do">To do</option>
+                    <option value="In progress">In progress</option>
+                    <option value="Done">Done</option>
+                </select>
+                
+                <label>Prioridad:</label>
+                <select id="editPriority">
+                    <option value="low">Baja</option>
+                    <option value="medium">Media</option>
+                    <option value="high">Alta</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeEditModal()">Cancelar</button>
+                <button class="btn btn-save" onclick="saveTask()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/drag-drop.js"></script>
+    <script src="js/kanban.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

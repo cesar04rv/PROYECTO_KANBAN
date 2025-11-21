@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .kanban-board {
+        grid-template-columns: 1fr;
+    }
+
+    .task-form {
+        flex-direction: column;
+    }
+
+    .task-input {
+        min-width: 100%;
+    }
+}
